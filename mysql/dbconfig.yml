@@ -1,0 +1,4 @@
+development:
+    dialect: mysql
+    dir: ./migrations
+    datasource: user1:Password_01@/go_sample?parseTime=true
