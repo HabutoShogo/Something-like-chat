@@ -9,11 +9,14 @@ func Init() {
 	// Echo instance
 	e := echo.New()
 
-		// Routes
-		v1 := e.Group("/api/v1")
-		{
-			v1.GET("/sample", controllers.Sample())
-		}
+	SampleController := controllers.NewSampleController(NewSqlHandler())
+
+	// Middleware
+	// e.Use(middleware.Logger())
+	// e.Use(middleware.Recover())
+
+	e.GET("/samples", func(c echo.Context) error { return SampleController.Index(c) })
+	e.GET("/sample/:id", func(c echo.Context) error { return SampleController.Show(c) })
 
 	// Start server
 	e.Logger.Fatal(e.Start(":8000"))

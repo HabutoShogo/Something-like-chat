@@ -1,6 +1,6 @@
 
 -- +migrate Up
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS users (
   id int NOT NULL AUTO_INCREMENT,
   name varchar(255) DEFAULT NULL,
   created_at timestamp NULL DEFAULT NULL,
@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS user (
   PRIMARY KEY (id)
 );
 -- +migrate Down
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `users`;
